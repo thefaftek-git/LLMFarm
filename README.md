@@ -35,6 +35,7 @@ Based on [ggml](https://github.com/ggerganov/ggml) and [llama.cpp](https://githu
 
 - [x] MacOS (13+)
 - [x] iOS (16+)
+- [x] iPadOS (16+) - [Installation Guide](docs/IPAD_INSTALLATION.md)
 - [x] Various inferences
 - [x] Various sampling methods
 - [x] Metal ([dont work](https://github.com/ggerganov/llama.cpp/issues/2407#issuecomment-1699544808) on intel Mac)
@@ -100,6 +101,12 @@ You can find some of the supported [models here](https://llmfarm.tech/).
 ```bash
 git clone --recurse-submodules https://github.com/guinmoon/LLMFarm
 ```
+
+## Building the App
+
+The project includes a GitHub Actions workflow that automatically builds the iOS/iPadOS app on every push. You can view the build status and download build artifacts from the Actions tab.
+
+To build locally, see the [iPad Installation Guide](docs/IPAD_INSTALLATION.md#option-3-build-and-install-from-source-advanced) for detailed instructions.
 
 # Also used sources from:
 * [rwkv.cpp](https://github.com/saharNooby/rwkv.cpp) by [saharNooby](https://github.com/saharNooby)
