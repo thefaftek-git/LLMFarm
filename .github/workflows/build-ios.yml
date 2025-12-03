@@ -85,11 +85,17 @@ jobs:
         </plist>
         EOF
         
-        # Try to export IPA (may fail without code signing)
-        xcodebuild -exportArchive \
+        # Try to export IPA (will fail without code signing credentials in CI)
+        # This step is optional and mainly for documentation purposes
+        if xcodebuild -exportArchive \
           -archivePath ${{ github.workspace }}/build/LLMFarm.xcarchive \
           -exportPath ${{ github.workspace }}/build/ipa \
-          -exportOptionsPlist ExportOptions.plist || true
+          -exportOptionsPlist ExportOptions.plist 2>&1 | tee export.log; then
+          echo "IPA export succeeded"
+        else
+          echo "IPA export failed (expected in CI without code signing). Archive is still available."
+          cat export.log
+        fi
     
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4

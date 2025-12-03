@@ -11,7 +11,7 @@ The easiest way to install LLMFarm on your iPad is through the official App Stor
 3. Tap **Get** or the cloud download icon
 4. Once installed, open the app from your home screen
 
-**App Store Link:** https://apps.apple.com/ru/app/llm-farm/id6461209867?l=en-GB&platform=iphone
+**App Store Link:** https://apps.apple.com/app/llm-farm/id6461209867
 
 ## Option 2: Install via TestFlight (Latest Beta Version)
 
@@ -167,4 +167,7 @@ After installation, you can:
 4. Use advanced features like RAG (Retrieval Augmented Generation)
 5. Create custom model configurations
 
-For more information, visit the [official documentation](https://llmfarm.tech/docs).
+For more information, visit:
+- Official website: https://llmfarm.tech
+- Documentation: https://llmfarm.tech/docs (if available)
+- GitHub Wiki: https://github.com/guinmoon/LLMFarm/wiki
