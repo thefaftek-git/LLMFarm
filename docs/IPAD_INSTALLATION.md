@@ -13,6 +13,8 @@ The easiest way to install LLMFarm on your iPad is through the official App Stor
 
 **App Store Link:** https://apps.apple.com/app/llm-farm/id6461209867
 
+> **Note:** This App Store link is taken from the project README. Verify the link works for your region.
+
 ## Option 2: Install via TestFlight (Latest Beta Version)
 
 To get the latest features and updates before they're released to the App Store:
@@ -22,6 +24,8 @@ To get the latest features and updates before they're released to the App Store:
 3. Tap **Accept** to join the beta
 4. Tap **Install** to download LLM Farm
 5. Once installed, you can open it from your home screen
+
+> **Note:** TestFlight invitation links may have limited slots or expiration dates. If the link doesn't work, check the project README or GitHub for an updated link.
 
 **Note:** Beta versions may contain experimental features and bugs.
 

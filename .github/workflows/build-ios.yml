@@ -38,7 +38,7 @@ jobs:
           -project LLMFarm.xcodeproj \
           -scheme LLMFarm_Release \
           -sdk iphonesimulator \
-          -destination 'platform=iOS Simulator,name=iPhone 15 Pro' \
+          -destination 'generic/platform=iOS Simulator' \
           -configuration Release \
           CODE_SIGN_IDENTITY="" \
           CODE_SIGNING_REQUIRED=NO \
@@ -50,7 +50,7 @@ jobs:
           -project LLMFarm.xcodeproj \
           -scheme LLMFarm_Release \
           -sdk iphonesimulator \
-          -destination 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (6th generation)' \
+          -destination 'generic/platform=iOS Simulator' \
           -configuration Release \
           CODE_SIGN_IDENTITY="" \
           CODE_SIGNING_REQUIRED=NO \
@@ -68,7 +68,8 @@ jobs:
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO
     
-    - name: Export IPA
+    - name: Export IPA (Optional)
+      continue-on-error: true
       run: |
         # Create export options plist
         cat > ExportOptions.plist << EOF
@@ -88,17 +89,12 @@ jobs:
         </plist>
         EOF
         
-        # Try to export IPA (will fail without code signing credentials in CI)
-        # This step is optional and mainly for documentation purposes
-        if xcodebuild -exportArchive \
+        # Note: IPA export requires code signing credentials and will fail in CI
+        # The xcarchive is still available and can be exported manually with proper credentials
+        xcodebuild -exportArchive \
           -archivePath ${{ github.workspace }}/build/LLMFarm.xcarchive \
           -exportPath ${{ github.workspace }}/build/ipa \
-          -exportOptionsPlist ExportOptions.plist 2>&1 | tee export.log; then
-          echo "IPA export succeeded"
-        else
-          echo "IPA export failed (expected in CI without code signing). Archive is still available."
-          cat export.log
-        fi
+          -exportOptionsPlist ExportOptions.plist
     
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
